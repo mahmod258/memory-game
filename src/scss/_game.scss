@@ -1,0 +1,390 @@
+.game {
+  width: 80vw;
+  gap: 6em;
+  position: relative;
+  @media (max-width: 810px) {
+    font-size: 95%;
+    @media (max-height: 600px) {
+      font-size: 70%;
+    }
+  }
+  @media (min-height: 560px) and (max-height: 750px) {
+    font-size: 12px;
+  }
+  .match-end,
+  .small-menu {
+    border-radius: 15px;
+    background-color: var(--white-color);
+    z-index: 21;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+  .small-menu {
+    padding: 2.5em;
+    width: 100%;
+    height: 21em;
+    display: var(--small-menu);
+    div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      button {
+        background-color: var(--non-clicked2);
+        border: 0;
+        border-radius: 100px;
+        height: 2.8em;
+        font-size: 1.4em;
+        color: var(--color2);
+        @media (min-height: 590px) and (max-height: 700px) {
+          font-size: 1.1em;
+        }
+      }
+      a {
+        button {
+          width: 100%;
+          background-color: var(--non-clicked2) !important;
+          border: 0;
+          border-radius: 100px;
+          height: 2.8em;
+          font-size: 1.4em;
+          color: var(--color2) !important;
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+    button:first-of-type {
+      background-color: var(--yellow-color);
+      color: var(--white-color);
+    }
+  }
+  .match-end {
+    width: 40em;
+    padding: 3em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+    @media (max-width: 710px) and (min-height: 700px) {
+      width: 100%;
+      padding: 1.5em;
+      gap: 1.4uilit em;
+      > div:first-of-type {
+        h1 {
+          font-size: 2em !important;
+        }
+      }
+      > div:nth-of-type(2) {
+        > div {
+          h1 {
+            font-size: 1.8em !important;
+          }
+        }
+      }
+
+      > div:last-of-type {
+        flex-direction: column;
+        button {
+          padding: 1em !important;
+        }
+      }
+    }
+    @media (max-width: 600px) and (max-height: 700px) {
+      width: 100%;
+      padding: 1.5em;
+      gap: 1em;
+      > div:first-of-type {
+        h1 {
+          font-size: 2em !important;
+        }
+      }
+      > div:nth-of-type(2) {
+        > div {
+          h1 {
+            font-size: 1.8em !important;
+          }
+        }
+      }
+
+      > div:last-of-type {
+        flex-direction: column;
+        button {
+          padding: 1em !important;
+        }
+      }
+    }
+
+    > div:first-of-type {
+      text-align: center;
+      h1 {
+        font-size: 2.5em;
+        color: var(--bg-body);
+        margin: 0.3em;
+      }
+      p {
+        color: var(--color1);
+        font-size: 1.2em;
+      }
+    }
+    > div:nth-of-type(2) {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--non-clicked2);
+        padding: 1em 2em;
+        border-radius: 0.5em;
+        p,
+        h1 {
+          margin: 0;
+        }
+        h1 {
+          font-size: 2.1em;
+        }
+        p {
+          font-size: 1.2em;
+        }
+      }
+    }
+    > div:last-of-type {
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+      button {
+        width: 100%;
+        border: 0;
+        background-color: var(--non-clicked2);
+        padding: 0.6em;
+        border-radius: 100em;
+        font-size: 1.2em;
+        &:first-of-type {
+          background-color: var(--yellow-color);
+          color: var(--white-color);
+        }
+      }
+    }
+  }
+  .head {
+    padding-top: 20px;
+    .buttons {
+      display: flex;
+      gap: 1em;
+      .yellow-button {
+        background-color: var(--yellow-color);
+        color: var(--white-color);
+      }
+      a {
+        text-decoration: none;
+        > :last-of-type {
+          background-color: var(--non-clicked);
+          color: var(--color2);
+        }
+      }
+      button {
+        padding: 0.8em 1.5em;
+        border: 0;
+        border-radius: 100px;
+        font-size: 1em;
+        p {
+          font-size: 1.5em;
+          margin: 0;
+        }
+      }
+    }
+  }
+  .playGround {
+    width: 30em;
+    height: 30em;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    .played {
+      cursor: auto;
+      &::before {
+        width: 0%;
+        height: 0%;
+        z-index: 0;
+      }
+      &::after {
+        cursor: auto;
+      }
+    }
+    .match {
+      cursor: auto;
+      background-color: var(--yellow-color);
+      &::before {
+        width: 0%;
+        height: 0%;
+        z-index: 0;
+      }
+      &::after {
+        cursor: auto;
+      }
+    }
+    > div {
+      background-color: var(--non-clicked);
+      transition: 0.5s;
+      width: var(--grid-size);
+      height: var(--grid-size);
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5em;
+      color: var(--white-color);
+      position: relative;
+      cursor: pointer;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background-color: var(--color2);
+        z-index: 3;
+        transition: 0.5s;
+        border-radius: 50%;
+        z-index: 10;
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        transition: 0.5s;
+        border-radius: 50%;
+        z-index: 2;
+        cursor: pointer;
+      }
+    }
+  }
+  .players {
+    gap: 1.4em;
+    height: 9em;
+    justify-content: center;
+    > div {
+      gap: 1em;
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+      .small-text {
+        display: none;
+      }
+
+      div:first-of-type {
+        width: 100%;
+        height: 100%;
+        flex: 1 1 0px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: var(--non-clicked2);
+        border-radius: 10px;
+        @media (max-width: 1090px) {
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          padding-left: 12px;
+          .big-text {
+            font-size: 1.5em !important;
+          }
+          h1 {
+            font-size: 1.5em !important;
+          }
+        }
+        p {
+          margin: 0;
+          font-size: 1.5em;
+          color: var(--color1);
+          letter-spacing: 2.5px;
+          width: fit-content;
+        }
+        h1 {
+          margin: 0;
+          font-size: 2.5em;
+        }
+        @media (max-width: 900px) {
+          align-items: center;
+          gap: 10px;
+          padding-left: 0;
+          .big-text {
+            display: none;
+          }
+          .small-text {
+            display: inline;
+          }
+        }
+      }
+      div:last-of-type {
+        height: 1.2em;
+        p {
+          width: 11em;
+          white-space: nowrap;
+          margin: 0;
+          letter-spacing: 2.5px;
+          color: var(--bg-body);
+          text-align: center;
+          display: none;
+        }
+      }
+    }
+
+    @media (max-width: 900px) {
+      p {
+        display: none;
+      }
+    }
+  }
+
+  .playing {
+    div:first-of-type {
+      background-color: var(--yellow-color) !important;
+      p,
+      h1 {
+        color: var(--white-color) !important;
+      }
+
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        top: -10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 0;
+        height: 0;
+        border-left: 1.5em solid transparent;
+        border-right: 1.5em solid transparent;
+
+        border-bottom: 1.7em solid var(--yellow-color);
+      }
+    }
+    div:last-of-type {
+      p {
+        display: inline !important;
+      }
+      @media (max-width: 900px) {
+        p {
+          display: none !important;
+        }
+      }
+    }
+  }
+}

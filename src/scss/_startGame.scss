@@ -1,0 +1,75 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 50px;
+  @media (max-height: 600px) {
+    font-size: 12px;
+  }
+  & > h1 {
+    font-size: 2.5em;
+    color: var(--white-color);
+    text-align: center;
+    margin: 0;
+    @media (max-width: 621px) {
+      font-size: 2em;
+    }
+  }
+  .starting {
+    font-size: 18px;
+    @media (max-height: 800px) and (min-height: 400px) {
+      font-size: 15px;
+    }
+    @media (max-width: 621px) {
+      width: 90vw;
+      height: 85vw;
+      font-size: 2.5vw;
+    }
+    width: 35em;
+    height: 30em;
+    background-color: white;
+    border-radius: 20px;
+    padding: 2.2em;
+    h6 {
+      font-size: 1.2em;
+      color: var(--color1);
+      margin-bottom: 1em;
+    }
+    > a {
+      button {
+        width: 100%;
+        height: 1.8em;
+        border-radius: 2em;
+        background-color: var(--yellow-color);
+        border: 0;
+        font-size: 2em;
+        color: var(--white-color);
+        text-decoration: none;
+        margin-top: 0.2em;
+      }
+    }
+    > * {
+      width: 100%;
+      > div {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5em;
+        button {
+          flex: 1 1 0px;
+          height: 2.2em;
+          border: 0px;
+          border-radius: 100em;
+          font-size: 1.6em;
+          color: var(--white-color);
+          background-color: var(--non-clicked);
+          &:hover {
+            background-color: #6395b8;
+          }
+        }
+      }
+    }
+  }
+}
+.chose {
+  background-color: #304859 !important;
+}
