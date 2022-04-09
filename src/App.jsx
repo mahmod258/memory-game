@@ -6,7 +6,7 @@ import React from "react";
 function App() {
   return (
     <main className="App">
-      <Router>
+      {/* <Router>
         <Routes>
           <Route
             path="/game"
@@ -14,7 +14,8 @@ function App() {
           />
           <Route path="/" element={<StartGame />} />
         </Routes>
-      </Router>
+      </Router> */}
+      <p>sss</p>
     </main>
   );
 }
