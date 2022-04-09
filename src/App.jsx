@@ -15,6 +15,7 @@ function App() {
           <Route path="/" element={<StartGame />} />
         </Routes>
       </Router> */}
+      <p>sss</p>
     </main>
   );
 }
