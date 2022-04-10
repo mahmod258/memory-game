@@ -66,7 +66,7 @@
   .match-end {
     width: 40em;
     padding: 3em;
-    display: flex;
+    display: var(--end-game);
     flex-direction: column;
     justify-content: center;
     gap: 2em;
@@ -178,8 +178,8 @@
       display: flex;
       gap: 1em;
       .yellow-button {
-        background-color: var(--yellow-color);
         color: var(--white-color);
+        background-color: var(--yellow-color);
       }
       a {
         text-decoration: none;

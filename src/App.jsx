@@ -1,12 +1,12 @@
-// import StartGame from "./components/startGame/startGame";
-// import { useState, useEffect } from "react";
-// import { HashRouter as Router, Routes, Route } from "react-router-dom";
-// import Game from "./components/game/game";
-// import React from "react";
+import StartGame from "./components/startGame/startGame";
+import { useState, useEffect } from "react";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import Game from "./components/game/game";
+import React from "react";
 function App() {
   return (
     <main className="App">
-      {/* <Router>
+      <Router>
         <Routes>
           <Route
             path="/game"
@@ -14,8 +14,7 @@ function App() {
           />
           <Route path="/" element={<StartGame />} />
         </Routes>
-      </Router> */}
-      <p>sss</p>
+      </Router>
     </main>
   );
 }

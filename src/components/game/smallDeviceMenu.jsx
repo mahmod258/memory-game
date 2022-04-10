@@ -12,6 +12,7 @@ export default function SmallDeviceMenu() {
         <button
           onClick={() => {
             document.documentElement.style.setProperty("--filter", "none");
+            document.documentElement.style.setProperty("--small-menu", "none");
           }}
         >
           Resume Game

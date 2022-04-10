@@ -176,9 +176,7 @@
 .game .match-end {
   width: 40em;
   padding: 3em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: var(--end-game);
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -309,8 +307,8 @@
   gap: 1em;
 }
 .game .head .buttons .yellow-button {
-  background-color: var(--yellow-color);
   color: var(--white-color);
+  background-color: var(--yellow-color);
 }
 .game .head .buttons a {
   text-decoration: none;
@@ -565,9 +563,9 @@
   --non-clicked2: #dfe7ec;
   --body-bg: #152938;
   --grid-size: calc(88% / 4);
-  --filter: block;
+  --filter: none;
   --small-menu: none;
-  --end-game: block;
+  --end-game: none;
 }
 
 * {
@@ -577,7 +575,6 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-weight: bold !important;
-  color: var(--color2);
 }
 
 body > ::before {

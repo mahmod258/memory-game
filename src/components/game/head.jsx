@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
-// import useMediaQuery from "../../customHooks/16-useMediaQuery/useMediaQuery";
+import useMediaQuery from "../../customHooks/16-useMediaQuery/useMediaQuery";
 export default function Head() {
-  // const menu = useMediaQuery("(min-width: 660px)");
-  const menu = true;
+  const menu = useMediaQuery("(min-width: 660px)");
   return (
     <div className="head d-flex w-100 justify-content-between align-items-center">
       <h1>memory</h1>

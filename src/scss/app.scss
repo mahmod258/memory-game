@@ -11,9 +11,9 @@
   --non-clicked2: #dfe7ec;
   --body-bg: #152938;
   --grid-size: calc(88% / 4);
-  --filter: block;
+  --filter: none;
   --small-menu: none;
-  --end-game: block;
+  --end-game: none;
 }
 * {
   margin: 0;
@@ -21,7 +21,6 @@
   font-family: "Atkinson Hyperlegible", sans-serif;
   box-sizing: border-box;
   font-weight: bold !important;
-  color: var(--color2);
 }
 body {
   > ::before {

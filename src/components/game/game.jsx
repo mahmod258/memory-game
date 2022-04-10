@@ -3,7 +3,7 @@ import PlayGround from "./playGround";
 import Players from "./players";
 import MatchEnd from "./matchEnd";
 import { useEffect, useState, useContext } from "react";
-// import useMediaQuery from "../../customHooks/16-useMediaQuery/useMediaQuery";
+import useMediaQuery from "../../customHooks/16-useMediaQuery/useMediaQuery";
 import SmallDeviceMenu from "./smallDeviceMenu";
 import React from "react";
 
@@ -17,7 +17,7 @@ export default function Game() {
     order = pra;
   };
 
-  const menu = true;
+  const menu = useMediaQuery("(min-width: 660px)");
 
   useEffect(() => {
     document.documentElement.style.setProperty("--body-bg", "white");

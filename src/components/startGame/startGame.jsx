@@ -12,6 +12,7 @@ export default function StartGame({ func }) {
   useEffect(() => {
     document.documentElement.style.setProperty("--body-bg", "#152938");
     document.documentElement.style.setProperty("--filter", "none");
+    document.documentElement.style.setProperty("--small-menu", "none");
     localStorage.setItem("data", JSON.stringify({}));
   }, []);
   useEffect(() => {
