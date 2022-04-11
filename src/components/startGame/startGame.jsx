@@ -9,27 +9,6 @@ export default function StartGame({ func }) {
     numberPlayers: 1,
     gridSize: 16,
   });
-  useEffect(() => {
-    document.documentElement.style.setProperty("--body-bg", "#152938");
-    document.documentElement.style.setProperty("--filter", "none");
-    document.documentElement.style.setProperty("--small-menu", "none");
-    localStorage.setItem("data", JSON.stringify({}));
-  }, []);
-  useEffect(() => {
-    let players = [];
-    for (let i = 0; i < data.numberPlayers; i++) {
-      players.push({
-        turns: 0,
-        success: 0,
-        current: false,
-      });
-    }
-    players[0].current = true;
-    console.log(players);
-    localStorage.players = JSON.stringify(players);
-    localStorage.order = "0";
-    localStorage.countToEnd = "0";
-  });
   return (
     <>
       <h1>memory</h1>

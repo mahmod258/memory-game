@@ -1,16 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import GridSize from "../startGame/gridSize";
-export default function PlayGround({
-  data,
-  playersStatus,
-  changePlayersStatus,
-  order,
-  changeOrder,
-}) {
-  // const playersStatus = useContext(PlayersStatus);
-  // const changePlayersStatus = useContext(ChangePlayersStatus);
-  // const order = useContext(Order);
-  // const changeOrder = useContext(ChangePlayersStatus);
+export default function PlayGround() {
   let icons = [
     <i className="fa-solid fa-apple-whole"></i>,
     <i className="fa-brands fa-atlassian"></i>,
@@ -31,142 +21,24 @@ export default function PlayGround({
     <i className="fa-solid fa-bookmark"></i>,
     <i className="fa-solid fa-house"></i>,
   ];
-  const [gridSize, setGridSize] = useState([]);
-
-  useEffect(() => {
-    let grid = [];
-    if (data.gridSize === 16) {
-      document.documentElement.style.setProperty(
-        "--grid-size",
-        "calc(88% / 4)"
-      );
-    } else {
-      document.documentElement.style.setProperty(
-        "--grid-size",
-        "calc(85% / 6)"
-      );
-    }
-    if (data.theme === "number") {
-      for (let i = 0; i < data.gridSize / 2; i++) {
-        grid.push(
-          <div className="" key={i} odd-id={i} even-id={i} onClick={handleGame}>
-            {i}
-          </div>
-        );
-      }
-      for (let i = 0; i < data.gridSize / 2; i++) {
-        grid.push(
-          <div
-            className=""
-            key={i + data.gridSize / 2}
-            odd-id={i}
-            onClick={handleGame}
-            even-id={i + data.gridSize / 2}
-          >
-            {i}
-          </div>
-        );
-      }
-    } else {
-      for (let i = 0; i < data.gridSize / 2; i++) {
-        grid.push(
-          <div className="" key={i} odd-id={i} even-id={i} onClick={handleGame}>
-            {icons[i]}
-          </div>
-        );
-      }
-      for (let i = 0; i < data.gridSize / 2; i++) {
-        grid.push(
-          <div
-            className=""
-            key={i + data.gridSize / 2}
-            odd-id={i}
-            onClick={handleGame}
-            even-id={i + data.gridSize / 2}
-          >
-            {icons[i]}
-          </div>
-        );
-      }
-    }
-    let randomGrid = grid.sort((a, b) => 0.5 - Math.random());
-    setGridSize(randomGrid);
-  }, []);
-  let arr = [];
-  let first;
-  let valid = true;
-  function handleGame(e) {
-    if (valid) {
-      if (valid) {
-        setTimeout(() => {
-          e.target.className = "played";
-          arr.push(e.target.attributes[1].value);
-          if (arr.length === 2) {
-            valid = false;
-            setTimeout(() => {
-              valid = true;
-            }, 800);
-            if (e.target.attributes[2] !== first.target.attributes[2]) {
-              if (
-                e.target.attributes.can === undefined &&
-                first.target.attributes.can === undefined
-              ) {
-                if (arr[0] === arr[1]) {
-                  arr = [];
-                  first.target.attributes.can = true;
-                  e.target.attributes.can = true;
-                  e.target.className = "match";
-                  first.target.className = "match";
-                  let obj = JSON.parse(localStorage.players);
-                  console.log(obj);
-                  obj[+localStorage.order].success =
-                    obj[+localStorage.order].success + 1;
-                  for (let i = 0; i < obj.length; i++) {
-                    obj[i].current = false;
-                  }
-                  obj[+localStorage.order + 1].current = true;
-
-                  localStorage.players = JSON.stringify(obj);
-                  localStorage.countToEnd = +localStorage.countToEnd + 1;
-                  if (+localStorage.order === obj.length - 1) {
-                    localStorage.order = 0;
-                  } else {
-                    localStorage.order = +localStorage.order + 1;
-                  }
-                } else {
-                  setTimeout(() => {
-                    e.target.className = "";
-                    first.target.className = "";
-                  }, 800);
-                  arr = [];
-                }
-                let obj = JSON.parse(localStorage.players);
-                obj[+localStorage.order].turns =
-                  obj[+localStorage.order].turns + 1;
-                for (let i = 0; i < obj.length; i++) {
-                  obj[i].current = false;
-                }
-                obj[+localStorage.order + 1].current = true;
-                localStorage.players = JSON.stringify(obj);
-                if (+localStorage.order === obj.length - 1) {
-                  localStorage.order = 0;
-                } else {
-                  localStorage.order = +localStorage.order + 1;
-                }
-              }
-            }
-          } else {
-            first = e;
-          }
-        }, 200);
-      }
-    }
-  }
   return (
     <div className="playGround">
-      {gridSize.map((el, i) => {
-        return el;
-      })}
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+      <div>11</div>
+      <div>12</div>
+      <div>13</div>
+      <div>14</div>
+      <div>15</div>
+      <div>16</div>
     </div>
   );
 }

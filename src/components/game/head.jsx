@@ -18,16 +18,7 @@ export default function Head() {
         </div>
       ) : (
         <div className="buttons">
-          <button
-            className="yellow-button"
-            onClick={() => {
-              document.documentElement.style.setProperty("--filter", "block");
-              document.documentElement.style.setProperty(
-                "--small-menu",
-                "block"
-              );
-            }}
-          >
+          <button className="yellow-button">
             <p>Menu</p>
           </button>
         </div>

@@ -9,7 +9,8 @@
 /coverage
 
 # production
-# /build
+/build
+/fontawesome
 
 # misc
 .DS_Store

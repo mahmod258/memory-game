@@ -17,6 +17,10 @@ export default function GridSize({ func }) {
             choosing(0);
             func(e.target.value);
             console.log(e.target.value);
+            document.documentElement.style.setProperty(
+              "--grid-size",
+              "calc(88% / 4)"
+            );
           }}
         >
           4x4
@@ -28,6 +32,10 @@ export default function GridSize({ func }) {
             choosing(1);
             func(e.target.value);
             console.log(e.target.value);
+            document.documentElement.style.setProperty(
+              "--grid-size",
+              "calc(85% / 6)"
+            );
           }}
         >
           6x6

@@ -1,6 +1,5 @@
 import StartGame from "./components/startGame/startGame";
-import { useState, useEffect } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Game from "./components/game/game";
 import React from "react";
 function App() {

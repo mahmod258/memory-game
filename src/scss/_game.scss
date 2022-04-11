@@ -66,7 +66,7 @@
   .match-end {
     width: 40em;
     padding: 3em;
-    display: var(--end-game);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 2em;
