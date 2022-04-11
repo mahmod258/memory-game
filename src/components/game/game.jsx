@@ -2,20 +2,43 @@ import Head from "./head";
 import PlayGround from "./playGround";
 import Players from "./players";
 import MatchEnd from "./matchEnd";
-import { useEffect, useState, useContext } from "react";
 import useMediaQuery from "../../customHooks/16-useMediaQuery/useMediaQuery";
 import SmallDeviceMenu from "./smallDeviceMenu";
-import React from "react";
-
+import React, { useContext, useEffect, useState } from "react";
+import { Data } from "../../App";
+import { useNavigate } from "react-router-dom";
+export const PlayersSuccess = React.createContext([]);
+export const ChangePlayersSuccess = React.createContext([]);
 export default function Game() {
+  const data = useContext(Data);
+  const [playersSuccess, setPlayerssuccess] = useState([]);
   const menu = useMediaQuery("(min-width: 660px)");
+  const changePlayersSuccess = (pra) => {
+    setPlayerssuccess(pra);
+  };
+  let navigate = useNavigate();
+  window.onload = () => {
+    navigate("/memory-game");
+  };
+  useEffect(() => {
+    document.documentElement.style.setProperty("--body-bg", "white");
+    let toPutInPlayersSuccess = [];
+    for (let i = 0; i < data.playersNumber; i++) {
+      toPutInPlayersSuccess.push(0);
+    }
+    setPlayerssuccess(toPutInPlayersSuccess);
+  }, []);
   return (
-    <div className="game d-flex justify-content-between flex-column">
-      <Head />
-      <PlayGround />
-      <Players />
-      {!menu ? <SmallDeviceMenu /> : null}
-      <MatchEnd />
-    </div>
+    <PlayersSuccess.Provider value={playersSuccess}>
+      <ChangePlayersSuccess.Provider value={changePlayersSuccess}>
+        <div className="game d-flex justify-content-between flex-column">
+          <Head />
+          <PlayGround />
+          <Players />
+          {!menu ? <SmallDeviceMenu /> : null}
+          {/* <MatchEnd /> */}
+        </div>
+      </ChangePlayersSuccess.Provider>
+    </PlayersSuccess.Provider>
   );
 }

@@ -10,7 +10,7 @@ export default function Head() {
           <button className="yellow-button">
             <p>Restart</p>
           </button>
-          <Link to="/">
+          <Link to="/memory-game">
             <button>
               <p>New Game</p>
             </button>

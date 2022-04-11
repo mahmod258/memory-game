@@ -15,7 +15,7 @@ export default function GridSize({ func }) {
           className={`${chose[0]}`}
           onClick={(e) => {
             choosing(0);
-            func(e.target.value);
+            func(+e.target.value);
             console.log(e.target.value);
             document.documentElement.style.setProperty(
               "--grid-size",
@@ -30,7 +30,7 @@ export default function GridSize({ func }) {
           className={`${chose[1]}`}
           onClick={(e) => {
             choosing(1);
-            func(e.target.value);
+            func(+e.target.value);
             console.log(e.target.value);
             document.documentElement.style.setProperty(
               "--grid-size",

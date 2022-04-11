@@ -18,7 +18,7 @@ export default function NumberPlayers({ func }) {
               key={i}
               onClick={(e) => {
                 choosing(i);
-                func(e.target.value);
+                func(+e.target.value);
                 console.log(e.target.value);
               }}
             >

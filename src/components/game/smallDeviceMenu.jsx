@@ -4,7 +4,7 @@ export default function SmallDeviceMenu() {
     <div className="small-menu">
       <div>
         <button>Restart</button>
-        <Link to="/">
+        <Link to="/memory-game/">
           <button>
             <p>New Game</p>
           </button>
