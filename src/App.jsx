@@ -1,5 +1,5 @@
 import StartGame from "./components/startGame/startGame";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Game from "./components/game/game";
 import React from "react";
 function App() {
@@ -7,10 +7,7 @@ function App() {
     <main className="App">
       <Router>
         <Routes>
-          <Route
-            path="/game"
-            element={<Game data={JSON.parse(localStorage.data)} />}
-          />
+          <Route path="/game" element={<Game />} />
           <Route path="/" element={<StartGame />} />
         </Routes>
       </Router>
