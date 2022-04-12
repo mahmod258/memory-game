@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import { PlayersSuccess } from "./game";
 export default function Players() {
   const playersSuccess = useContext(PlayersSuccess);
-
   return (
     <div className="players d-flex">
       {playersSuccess.map((el, i) => {

@@ -11,7 +11,7 @@ export default function SelectGame({ func }) {
       <h6>Select Theme</h6>
       <div>
         <button
-          value="number"
+          value="numbers"
           className={`${chose[0]}`}
           onClick={(e) => {
             choosing(0);

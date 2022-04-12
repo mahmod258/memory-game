@@ -4,16 +4,25 @@ import Game from "./components/game/game";
 import React, { useState, useEffect } from "react";
 export const Data = React.createContext({});
 export const ChangeData = React.createContext({});
+
 function App() {
   const [data, setData] = useState({
     theme: "numbers",
-    playersNumber: 0,
+    playersNumber: 1,
     gridSize: 16,
   });
 
+  useEffect(() => {
+    setData({
+      theme: "numbers",
+      playersNumber: 1,
+      gridSize: 16,
+    });
+  }, []);
   const changeData = (name, value) => {
     setData({ ...data, [value]: name });
   };
+
   return (
     <Data.Provider value={data}>
       <ChangeData.Provider value={changeData}>
