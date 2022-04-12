@@ -50,11 +50,32 @@ export default function PlayGround() {
     });
     setDivs(toPutOnDivsSHUFFELD);
   }, []);
+  const [match, setMatch] = useState([]);
+  const [first, setFirst] = useState({});
+  const handleGame = (el, e) => {
+    const arr = match;
+    arr.push(el);
+    setMatch(arr);
+    e.target.className = "played";
+    if (arr.length === 2) {
+      setMatch([]);
+    } else {
+      setFirst(e);
+    }
+  };
   return (
     <div className="playGround">
       <div>
         {divs.map((figure, i) => {
-          return <div key={i}>{figure.el}</div>;
+          return (
+            <div
+              className={figure}
+              onClick={(e) => handleGame(figure, e)}
+              key={i}
+            >
+              {figure.el}
+            </div>
+          );
         })}
       </div>
     </div>

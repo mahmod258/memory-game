@@ -9,6 +9,8 @@ export default function StartGame({ replaceData }) {
   const changeData = useContext(ChangeData);
   useEffect(() => {
     document.documentElement.style.setProperty("--body-bg", "#152938");
+    document.documentElement.style.setProperty("--filter", "none");
+    document.documentElement.style.setProperty("--small-menu", "none");
     replaceData();
   }, []);
   return (
