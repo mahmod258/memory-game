@@ -22,6 +22,13 @@ function App() {
   const changeData = (name, value) => {
     setData({ ...data, [value]: name });
   };
+  const replaceData = () => {
+    setData({
+      theme: "numbers",
+      playersNumber: 1,
+      gridSize: 16,
+    });
+  };
 
   return (
     <Data.Provider value={data}>
@@ -30,7 +37,10 @@ function App() {
           <Router>
             <Routes>
               <Route path="/memory-game/game" element={<Game />} />
-              <Route path="/memory-game" element={<StartGame />} />
+              <Route
+                path="/memory-game"
+                element={<StartGame replaceData={replaceData} />}
+              />
             </Routes>
           </Router>
         </main>

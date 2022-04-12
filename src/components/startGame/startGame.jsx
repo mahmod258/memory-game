@@ -4,10 +4,12 @@ import SelectTheme from "./selectTheme";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { Data, ChangeData } from "../../App";
-export default function StartGame() {
+export default function StartGame({ replaceData }) {
+  const data = useContext(Data);
   const changeData = useContext(ChangeData);
   useEffect(() => {
     document.documentElement.style.setProperty("--body-bg", "#152938");
+    replaceData();
   }, []);
   return (
     <>

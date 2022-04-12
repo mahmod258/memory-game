@@ -19,7 +19,6 @@ export default function Game() {
   let navigate = useNavigate();
   window.onload = () => {
     navigate("/memory-game");
-    window.location.reload();
   };
   useEffect(() => {
     document.documentElement.style.setProperty("--body-bg", "white");

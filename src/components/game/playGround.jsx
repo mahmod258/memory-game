@@ -25,21 +25,26 @@ export default function PlayGround() {
     <i className="fa-solid fa-lemon"></i>,
     <i className="fa-solid fa-apple-whole"></i>,
   ];
-  let divDetail = icons.map((el, i) => {
+  let divsDetails = icons.map((el, i) => {
     return {
       el: data.theme === "icons" ? el : <p>{i}</p>,
-      odd_id: Math.random(),
+      odd_id: i,
+      className_odd: "",
     };
   });
 
   useEffect(() => {
-    const toPutOnDivs = [...divDetail, ...divDetail].sort(
+    const toPutOnDivs = [...divsDetails, ...divsDetails].sort(
       () => 0.5 - Math.random()
     );
-    toPutOnDivs.forEach((el) => (el.unique_id = Math.random() + 1));
+    toPutOnDivs.forEach((el, i) => {
+      el.unique_id = i;
+      el.unique_ClassName = "";
+    });
     toPutOnDivs.length = data.gridSize;
     setDivs(toPutOnDivs);
   }, []);
+
   return (
     <div className="playGround">
       {divs.map((figure, i) => {
