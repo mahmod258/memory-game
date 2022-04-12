@@ -16,7 +16,6 @@ export default function SelectGame({ func }) {
           onClick={(e) => {
             choosing(0);
             func(e.target.value);
-            console.log(e.target.value);
           }}
         >
           Numbers
@@ -27,7 +26,6 @@ export default function SelectGame({ func }) {
           onClick={(e) => {
             choosing(1);
             func(e.target.value);
-            console.log(e.target.value);
           }}
         >
           Icons

@@ -4,78 +4,82 @@ import { Data } from "../../App";
 import { PlayersSuccess } from "./game";
 
 export default function PlayGround() {
+  const data = useContext(Data);
+  const playersSuccess = useContext(PlayersSuccess);
+  const [divs, setDivs] = useState([]);
   let icons = [
     {
       el: <i className="fa-solid fa-bookmark"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-brands fa-atlassian"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-bicycle"></i>,
-
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-book"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-bell"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-building-columns"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-car"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-futbol"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-flag"></i>,
-
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-horse"></i>,
-
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-jet-fighter-up"></i>,
-
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i class="fa-brands fa-black-tie"></i>,
-
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-person"></i>,
-
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-mountain-sun"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-lemon"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
     {
       el: <i className="fa-solid fa-apple-whole"></i>,
-      id: Math.random(),
+      odd_id: Math.random(),
     },
   ];
+
+  useEffect(() => {
+    const toPutOnDivs = [...icons, ...icons].sort(() => 0.5 - Math.random());
+    toPutOnDivs.forEach((el) => (el.unique_id = Math.random() + 1));
+
+    setDivs(toPutOnDivs);
+  }, []);
   return (
     <div className="playGround">
       <div>1</div>

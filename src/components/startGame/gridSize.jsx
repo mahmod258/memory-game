@@ -16,7 +16,6 @@ export default function GridSize({ func }) {
           onClick={(e) => {
             choosing(0);
             func(+e.target.value);
-            console.log(e.target.value);
             document.documentElement.style.setProperty(
               "--grid-size",
               "calc(88% / 4)"

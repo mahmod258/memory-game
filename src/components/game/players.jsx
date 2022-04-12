@@ -7,7 +7,7 @@ export default function Players() {
     <div className="players d-flex">
       {playersSuccess.map((el, i) => {
         return (
-          <div className="">
+          <div className="" key={i}>
             <div>
               <p className="small-text">P{i}</p>
               <p className="big-text">Player {i}</p>
