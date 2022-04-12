@@ -24,27 +24,34 @@ export default function PlayGround() {
     <i className="fa-solid fa-mountain-sun"></i>,
     <i className="fa-solid fa-lemon"></i>,
     <i className="fa-solid fa-apple-whole"></i>,
+    <i className="fa-solid fa-award"></i>,
+    <i className="fa-solid fa-axe-battle"></i>,
   ];
+  console.log(icons);
   let divsDetails = icons.map((el, i) => {
     return {
-      el: data.theme === "icons" ? el : <p>{i}</p>,
+      el: data.theme === "icons" ? el : <p style={{ margin: "0" }}>{i}</p>,
       odd_id: i,
-      className_odd: "",
+      odd_className: "",
     };
   });
 
   useEffect(() => {
-    const toPutOnDivs = [...divsDetails, ...divsDetails].sort(
-      () => 0.5 - Math.random()
-    );
+    let toPutOnDivs = [];
+    for (let i = 0; i < divsDetails.length; i++) {
+      toPutOnDivs.push(divsDetails[i]);
+      toPutOnDivs.push(divsDetails[i]);
+    }
+    toPutOnDivs.length = data.gridSize;
+
+    let toPutOnDivsSHUFFELD = toPutOnDivs.sort(() => 0.5 - Math.random());
     toPutOnDivs.forEach((el, i) => {
       el.unique_id = i;
       el.unique_ClassName = "";
     });
-    toPutOnDivs.length = data.gridSize;
-    setDivs(toPutOnDivs);
+    setDivs(toPutOnDivsSHUFFELD);
   }, []);
-
+  console.log(divs);
   return (
     <div className="playGround">
       {divs.map((figure, i) => {

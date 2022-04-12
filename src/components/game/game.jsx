@@ -24,13 +24,13 @@ export default function Game() {
     document.documentElement.style.setProperty("--body-bg", "white");
     if (data.gridSize === 16) {
       document.documentElement.style.setProperty(
-        "--grid-size",
-        "calc(88% / 4)"
+        "--grid-order",
+        "repeat(4,1fr)"
       );
     } else {
       document.documentElement.style.setProperty(
-        "--grid-size",
-        "calc(85% / 6)"
+        "--grid-order",
+        "repeat(6,1fr)"
       );
     }
     let toPutInPlayersSuccess = [];
