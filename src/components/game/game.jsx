@@ -22,6 +22,17 @@ export default function Game() {
   };
   useEffect(() => {
     document.documentElement.style.setProperty("--body-bg", "white");
+    if (data.gridSize === 16) {
+      document.documentElement.style.setProperty(
+        "--grid-size",
+        "calc(88% / 4)"
+      );
+    } else {
+      document.documentElement.style.setProperty(
+        "--grid-size",
+        "calc(85% / 6)"
+      );
+    }
     let toPutInPlayersSuccess = [];
     for (let i = 0; i < data.playersNumber; i++) {
       toPutInPlayersSuccess.push(0);

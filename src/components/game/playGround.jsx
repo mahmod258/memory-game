@@ -1,25 +1,80 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import GridSize from "../startGame/gridSize";
+import { Data } from "../../App";
+import { PlayersSuccess } from "./game";
+
 export default function PlayGround() {
   let icons = [
-    <i className="fa-solid fa-apple-whole"></i>,
-    <i className="fa-brands fa-atlassian"></i>,
-    <i className="fa-solid fa-bicycle"></i>,
-    <i className="fa-solid fa-book"></i>,
-    <i className="fa-solid fa-bell"></i>,
-    <i className="fa-solid fa-building-columns"></i>,
-    <i className="fa-solid fa-car"></i>,
-    <i className="fa-solid fa-futbol"></i>,
-    <i className="fa-solid fa-flag"></i>,
-    <i className="fa-solid fa-horse"></i>,
-    <i className="fa-solid fa-jet-fighter-up"></i>,
-    <i class="fa-brands fa-black-tie"></i>,
-    <i className="fa-solid fa-person"></i>,
-    <i className="fa-solid fa-mountain-sun"></i>,
-    <i className="fa-solid fa-lemon"></i>,
-    <i className="fa-solid fa-gamepad"></i>,
-    <i className="fa-solid fa-bookmark"></i>,
-    <i className="fa-solid fa-house"></i>,
+    {
+      el: <i className="fa-solid fa-bookmark"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-brands fa-atlassian"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-bicycle"></i>,
+
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-book"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-bell"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-building-columns"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-car"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-futbol"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-flag"></i>,
+
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-horse"></i>,
+
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-jet-fighter-up"></i>,
+
+      id: Math.random(),
+    },
+    {
+      el: <i class="fa-brands fa-black-tie"></i>,
+
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-person"></i>,
+
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-mountain-sun"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-lemon"></i>,
+      id: Math.random(),
+    },
+    {
+      el: <i className="fa-solid fa-apple-whole"></i>,
+      id: Math.random(),
+    },
   ];
   return (
     <div className="playGround">
