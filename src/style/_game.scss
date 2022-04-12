@@ -203,74 +203,88 @@
   .playGround {
     width: 30em;
     height: 30em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     align-self: center;
-    display: grid;
-    grid-template-columns: var(--grid-order);
-    grid-template-rows: var(--grid-order);
-    gap: 3%;
-    .played {
-      cursor: auto;
-      &::before {
-        width: 0%;
-        height: 0%;
-        z-index: 0;
-      }
-      &::after {
-        cursor: auto;
-      }
+    @media (max-width: 600px) {
+      width: 100%;
     }
-    .match {
-      cursor: auto;
-      background-color: var(--yellow-color);
-      &::before {
-        width: 0%;
-        height: 0%;
-        z-index: 0;
-      }
-      &::after {
-        cursor: auto;
-      }
-    }
-    > div {
-      background-color: var(--non-clicked);
-      transition: 0.5s;
+    & > div {
       width: 100%;
       height: 100%;
-      border-radius: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5em;
-      color: var(--white-color);
-      position: relative;
-      cursor: pointer;
-      &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
-        background-color: var(--color2);
-        z-index: 3;
-        transition: 0.5s;
-        border-radius: 50%;
-        z-index: 10;
+      @media (max-width: 600px) {
+        width: 88vw;
+        height: 88vw;
       }
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      display: grid;
+      grid-template-columns: var(--grid-order);
+      grid-template-rows: var(--grid-order);
+      gap: 3%;
+      .played {
+        cursor: auto;
+        &::before {
+          width: 0%;
+          height: 0%;
+          z-index: 0;
+        }
+        &::after {
+          cursor: auto;
+        }
+      }
+      .match {
+        cursor: auto;
+        background-color: var(--yellow-color);
+        &::before {
+          width: 0%;
+          height: 0%;
+          z-index: 0;
+        }
+        &::after {
+          cursor: auto;
+        }
+      }
+      > div {
+        background-color: var(--non-clicked);
+        transition: 0.5s;
         width: 100%;
         height: 100%;
-        z-index: 2;
-        transition: 0.5s;
-        border-radius: 50%;
-        z-index: 2;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5em;
+        color: var(--white-color);
+        position: relative;
         cursor: pointer;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          background-color: var(--color2);
+          z-index: 3;
+          transition: 0.5s;
+          border-radius: 50%;
+          z-index: 10;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          transition: 0.5s;
+          border-radius: 50%;
+          z-index: 2;
+          cursor: pointer;
+        }
       }
     }
   }

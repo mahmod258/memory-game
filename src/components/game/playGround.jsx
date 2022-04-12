@@ -27,7 +27,6 @@ export default function PlayGround() {
     <i className="fa-solid fa-award"></i>,
     <i className="fa-solid fa-axe-battle"></i>,
   ];
-  console.log(icons);
   let divsDetails = icons.map((el, i) => {
     return {
       el: data.theme === "icons" ? el : <p style={{ margin: "0" }}>{i}</p>,
@@ -51,12 +50,13 @@ export default function PlayGround() {
     });
     setDivs(toPutOnDivsSHUFFELD);
   }, []);
-  console.log(divs);
   return (
     <div className="playGround">
-      {divs.map((figure, i) => {
-        return <div key={i}>{figure.el}</div>;
-      })}
+      <div>
+        {divs.map((figure, i) => {
+          return <div key={i}>{figure.el}</div>;
+        })}
+      </div>
     </div>
   );
 }
