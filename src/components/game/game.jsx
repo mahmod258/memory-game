@@ -9,17 +9,21 @@ import { Data } from "../../App";
 import { useNavigate } from "react-router-dom";
 export const PlayersSuccess = React.createContext([]);
 export const ChangePlayersSuccess = React.createContext(() => {});
-export const endGame = React.createContext(false);
-export const changeEndGame = React.createContext(() => {});
-export const order = React.createContext(0);
-export const changeOrder = React.createContext(() => {});
+export const EndGame = React.createContext(false);
+export const ChangeEndGame = React.createContext(() => {});
+export const Order = React.createContext(0);
+export const ChangeOrder = React.createContext(() => {});
 export default function Game() {
   const data = useContext(Data);
-  const [playersSuccess, setPlayerssuccess] = useState([]);
   const menu = useMediaQuery("(min-width: 660px)");
+  const [playersSuccess, setPlayerssuccess] = useState([]);
+  const [endGame, setEndGame] = useState(false);
+  const [order, setOrder] = useState(0);
   const changePlayersSuccess = (pra) => {
     setPlayerssuccess(pra);
   };
+  const changeEndGame = (pra) => setEndGame(pra);
+  const changeOrder = (pra) => setOrder(pra);
   let navigate = useNavigate();
   window.onload = () => {
     navigate("/memory-game");
@@ -46,13 +50,23 @@ export default function Game() {
   return (
     <PlayersSuccess.Provider value={playersSuccess}>
       <ChangePlayersSuccess.Provider value={changePlayersSuccess}>
-        <div className="game d-flex justify-content-between flex-column">
-          <Head />
-          <PlayGround />
-          <Players />
-          {!menu ? <SmallDeviceMenu /> : null}
-          {/* <MatchEnd /> */}
-        </div>
+        <Order.Provider value={order}>
+          <ChangeOrder.Provider value={changeOrder}>
+            <EndGame.Provider value={endGame}>
+              <ChangeEndGame.Provider value={changeEndGame}>
+                {/* Components Border */}
+                <div className="game d-flex justify-content-between flex-column">
+                  <Head />
+                  <PlayGround />
+                  <Players />
+                  {!menu ? <SmallDeviceMenu /> : null}
+                  {/* <MatchEnd /> */}
+                </div>
+                {/* Components Border */}
+              </ChangeEndGame.Provider>
+            </EndGame.Provider>
+          </ChangeOrder.Provider>
+        </Order.Provider>
       </ChangePlayersSuccess.Provider>
     </PlayersSuccess.Provider>
   );
