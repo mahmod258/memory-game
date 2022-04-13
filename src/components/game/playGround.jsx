@@ -1,10 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import GridSize from "../startGame/gridSize";
 import { Data } from "../../App";
-import { PlayersSuccess } from "./game";
+import { PlayersSuccess, Order, ChangeOrder } from "./game";
 
 export default function PlayGround() {
   const data = useContext(Data);
+  const order = useContext(Order);
+  const changeOrder = useContext(ChangeOrder);
   const playersSuccess = useContext(PlayersSuccess);
   const [divs, setDivs] = useState([]);
   const icons = [
@@ -54,9 +56,9 @@ export default function PlayGround() {
   }, []);
   const [match, setMatch] = useState([]);
   const [first, setFirst] = useState({});
+  const [countToEnd, setCOuntToEnd] = useState(0);
   const handleGame = (el, e) => {
     let arr = match;
-    console.log(arr);
     if (typeof arr[0] === "object") {
       if (arr[0].unique_id !== el.unique_id) {
         arr.push(el);
@@ -64,19 +66,20 @@ export default function PlayGround() {
     } else {
       arr.push(el);
     }
-    el.className = "played";
+    e.target.className = "played";
     if (arr.length === 2) {
       if (arr[0].odd_id === arr[1].odd_id) {
-        setTimeout(() => {
-          first.target.className = "";
-          e.target.className = "";
-        }, 1000);
-      } else {
         setTimeout(() => {
           first.target.className = "match";
           e.target.className = "match";
         }, 1000);
+      } else {
+        setTimeout(() => {
+          first.target.className = "";
+          e.target.className = "";
+        }, 1000);
       }
+      changeOrder();
       arr = [];
     } else {
       setFirst(e);

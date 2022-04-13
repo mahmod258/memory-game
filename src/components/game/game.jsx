@@ -22,8 +22,14 @@ export default function Game() {
   const changePlayersSuccess = (pra) => {
     setPlayerssuccess(pra);
   };
-  const changeEndGame = (pra) => setEndGame(pra);
-  const changeOrder = (pra) => setOrder(pra);
+  const changeEndGame = () => setEndGame(true);
+  const changeOrder = () => {
+    if (order === data.playersNumber - 1) {
+      setOrder(0);
+    } else {
+      setOrder(order + 1);
+    }
+  };
   let navigate = useNavigate();
   window.onload = () => {
     navigate("/memory-game");
@@ -60,7 +66,7 @@ export default function Game() {
                   <PlayGround />
                   <Players />
                   {!menu ? <SmallDeviceMenu /> : null}
-                  {/* <MatchEnd /> */}
+                  {/* {order === data.playersNumber ? <MatchEnd /> : null} */}
                 </div>
                 {/* Components Border */}
               </ChangeEndGame.Provider>

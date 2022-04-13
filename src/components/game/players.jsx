@@ -1,12 +1,13 @@
 import { useState, useEffect, useContext } from "react";
-import { PlayersSuccess } from "./game";
+import { PlayersSuccess, Order } from "./game";
 export default function Players() {
   const playersSuccess = useContext(PlayersSuccess);
+  const order = useContext(Order);
   return (
     <div className="players d-flex">
       {playersSuccess.map((el, i) => {
         return (
-          <div className="" key={i}>
+          <div className={i === order ? "playing" : ""} key={i}>
             <div>
               <p className="small-text">P{i}</p>
               <p className="big-text">Player {i}</p>
