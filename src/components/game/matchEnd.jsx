@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function MatchEnd() {
+  useEffect(() => {
+    document.documentElement.style.setProperty("--filter", "block");
+  });
   return (
     <>
       <div className="match-end">
@@ -28,7 +32,9 @@ export default function MatchEnd() {
         </div>
         <div>
           <button>Restart</button>
-          <button>Setup New Game</button>
+          <Link to="/memory-game">
+            <button>Setup New Game</button>
+          </Link>
         </div>
       </div>
     </>

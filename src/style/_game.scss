@@ -158,17 +158,22 @@
       display: flex;
       justify-content: space-between;
       gap: 1em;
-      button {
+      button,
+      a button {
         width: 100%;
         border: 0;
-        background-color: var(--non-clicked2);
-        padding: 0.6em;
+        padding: 0.6em !important;
         border-radius: 100em;
-        font-size: 1.2em;
-        &:first-of-type {
-          background-color: var(--yellow-color);
-          color: var(--white-color);
+        font-size: 1.4em;
+        background-color: var(--yellow-color);
+        color: var(--white-color);
+        &:last-child {
+          background-color: var(--non-clicked2);
+          color: var(--color2);
         }
+      }
+      a {
+        width: 100%;
       }
     }
   }

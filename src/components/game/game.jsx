@@ -66,7 +66,8 @@ export default function Game() {
                   <PlayGround />
                   <Players />
                   {!menu ? <SmallDeviceMenu /> : null}
-                  {/* {order === data.playersNumber ? <MatchEnd /> : null} */}
+                  {/* {endGame ? <MatchEnd /> : null} */}
+                  <MatchEnd />
                 </div>
                 {/* Components Border */}
               </ChangeEndGame.Provider>
