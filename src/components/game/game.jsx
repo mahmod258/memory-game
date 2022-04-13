@@ -8,7 +8,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { Data } from "../../App";
 import { useNavigate } from "react-router-dom";
 export const PlayersSuccess = React.createContext([]);
-export const ChangePlayersSuccess = React.createContext([]);
+export const ChangePlayersSuccess = React.createContext(() => {});
+export const endGame = React.createContext(false);
+export const changeEndGame = React.createContext(() => {});
+export const order = React.createContext(0);
+export const changeOrder = React.createContext(() => {});
 export default function Game() {
   const data = useContext(Data);
   const [playersSuccess, setPlayerssuccess] = useState([]);

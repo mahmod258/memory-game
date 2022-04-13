@@ -31,23 +31,19 @@ export default function PlayGround() {
     return {
       el: data.theme === "icons" ? el : <p style={{ margin: "0" }}>{i}</p>,
       odd_id: i,
-      odd_className: "",
     };
   });
 
   useEffect(() => {
     let toPutOnDivs = [];
-
     for (let i = 0; i < divsDetails.length; i++) {
       toPutOnDivs.push({
         ...divsDetails[i],
         unique_id: i + divsDetails.length,
-        unique_className: "",
       });
       toPutOnDivs.push({
         ...divsDetails[i],
         unique_id: i,
-        unique_className: "",
       });
     }
     toPutOnDivs.length = data.gridSize;
@@ -56,11 +52,11 @@ export default function PlayGround() {
 
     setDivs(toPutOnDivsSHUFFLED);
   }, []);
-  console.log(divs);
   const [match, setMatch] = useState([]);
   const [first, setFirst] = useState({});
   const handleGame = (el, e) => {
-    const arr = match;
+    let arr = match;
+    console.log(arr);
     if (typeof arr[0] === "object") {
       if (arr[0].unique_id !== el.unique_id) {
         arr.push(el);
@@ -68,15 +64,24 @@ export default function PlayGround() {
     } else {
       arr.push(el);
     }
-    setMatch(arr);
-    el.unique_className = "played";
+    el.className = "played";
     if (arr.length === 2) {
-      setMatch([]);
-      console.log(match);
+      if (arr[0].odd_id === arr[1].odd_id) {
+        setTimeout(() => {
+          first.target.className = "";
+          e.target.className = "";
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          first.target.className = "match";
+          e.target.className = "match";
+        }, 1000);
+      }
+      arr = [];
     } else {
       setFirst(e);
-      console.log(match);
     }
+    setMatch(arr);
   };
   return (
     <div className="playGround">
@@ -84,7 +89,7 @@ export default function PlayGround() {
         {divs.map((figure, i) => {
           return (
             <div
-              className={figure.odd_className + figure.unique_className}
+              className={figure.className}
               onClick={(e) => handleGame(figure, e)}
               key={i}
             >
