@@ -37,30 +37,45 @@ export default function PlayGround() {
 
   useEffect(() => {
     let toPutOnDivs = [];
+
     for (let i = 0; i < divsDetails.length; i++) {
-      toPutOnDivs.push(divsDetails[i]);
-      toPutOnDivs.push(divsDetails[i]);
+      toPutOnDivs.push({
+        ...divsDetails[i],
+        unique_id: i + divsDetails.length,
+        unique_className: "",
+      });
+      toPutOnDivs.push({
+        ...divsDetails[i],
+        unique_id: i,
+        unique_className: "",
+      });
     }
     toPutOnDivs.length = data.gridSize;
 
-    let toPutOnDivsSHUFFELD = toPutOnDivs.sort(() => 0.5 - Math.random());
-    toPutOnDivs.forEach((el, i) => {
-      el.unique_id = i;
-      el.unique_ClassName = "";
-    });
-    setDivs(toPutOnDivsSHUFFELD);
+    let toPutOnDivsSHUFFLED = toPutOnDivs.sort(() => 0.5 - Math.random());
+
+    setDivs(toPutOnDivsSHUFFLED);
   }, []);
+  console.log(divs);
   const [match, setMatch] = useState([]);
   const [first, setFirst] = useState({});
   const handleGame = (el, e) => {
     const arr = match;
-    arr.push(el);
+    if (typeof arr[0] === "object") {
+      if (arr[0].unique_id !== el.unique_id) {
+        arr.push(el);
+      }
+    } else {
+      arr.push(el);
+    }
     setMatch(arr);
-    e.target.className = "played";
+    el.unique_className = "played";
     if (arr.length === 2) {
       setMatch([]);
+      console.log(match);
     } else {
       setFirst(e);
+      console.log(match);
     }
   };
   return (
@@ -69,7 +84,7 @@ export default function PlayGround() {
         {divs.map((figure, i) => {
           return (
             <div
-              className={figure}
+              className={figure.odd_className + figure.unique_className}
               onClick={(e) => handleGame(figure, e)}
               key={i}
             >
