@@ -29,7 +29,7 @@ function App() {
       gridSize: 16,
     });
   };
-
+  useEffect(() => {});
   return (
     <Data.Provider value={data}>
       <ChangeData.Provider value={changeData}>

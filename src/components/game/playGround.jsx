@@ -1,13 +1,20 @@
 import { useState, useEffect, useContext } from "react";
 import GridSize from "../startGame/gridSize";
 import { Data } from "../../App";
-import { PlayersSuccess, Order, ChangeOrder, ChangeEndGame } from "./game";
+import {
+  PlayersSuccess,
+  Order,
+  ChangeOrder,
+  ChangeEndGame,
+  ChangePlayersSuccess,
+} from "./game";
 
 export default function PlayGround() {
   const data = useContext(Data);
   const order = useContext(Order);
   const changeOrder = useContext(ChangeOrder);
   const playersSuccess = useContext(PlayersSuccess);
+  const changePlayersSuccess = useContext(ChangePlayersSuccess);
   const changeEndGame = useContext(ChangeEndGame);
   const [divs, setDivs] = useState([]);
   const icons = [
@@ -76,7 +83,9 @@ export default function PlayGround() {
         setTimeout(() => {
           first.target.className = "match";
           e.target.className = "match";
-        }, 1000);
+        }, 500);
+        changePlayersSuccess();
+
         setCountToEnd(countToEnd + 1);
         if (countToEnd === data.gridSize / 2 - 1) {
           changeEndGame();
@@ -86,6 +95,7 @@ export default function PlayGround() {
           first.target.className = "";
           e.target.className = "";
         }, 1000);
+        changePlayersSuccess();
       }
       changeOrder();
 

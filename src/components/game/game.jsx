@@ -19,8 +19,12 @@ export default function Game() {
   const [playersSuccess, setPlayerssuccess] = useState([]);
   const [endGame, setEndGame] = useState(false);
   const [order, setOrder] = useState(0);
-  const changePlayersSuccess = (pra) => {
-    setPlayerssuccess(pra);
+  const changePlayersSuccess = () => {
+    let arr = playersSuccess;
+    console.log(arr);
+    arr[order] = arr[order] + 1;
+    console.log("-");
+    setPlayerssuccess(arr);
   };
   const changeEndGame = () => setEndGame(true);
   const changeOrder = () => {
@@ -32,9 +36,14 @@ export default function Game() {
   };
   let navigate = useNavigate();
   window.onload = () => {
-    navigate("/memory-game");
+    // navigate("/memory-game");
   };
   useEffect(() => {
+    const toPutInPlayersSuccess = [];
+    for (let i = 0; i < data.playersNumber; i++) {
+      toPutInPlayersSuccess.push(0);
+    }
+    setPlayerssuccess(toPutInPlayersSuccess);
     document.documentElement.style.setProperty("--body-bg", "white");
     if (data.gridSize === 16) {
       document.documentElement.style.setProperty(
@@ -47,11 +56,6 @@ export default function Game() {
         "repeat(6,1fr)"
       );
     }
-    let toPutInPlayersSuccess = [];
-    for (let i = 0; i < data.playersNumber; i++) {
-      toPutInPlayersSuccess.push(0);
-    }
-    setPlayerssuccess(toPutInPlayersSuccess);
   }, []);
   return (
     <PlayersSuccess.Provider value={playersSuccess}>
@@ -60,16 +64,15 @@ export default function Game() {
           <ChangeOrder.Provider value={changeOrder}>
             <EndGame.Provider value={endGame}>
               <ChangeEndGame.Provider value={changeEndGame}>
-                {/* Components Border */}
+                {/*             Components Border             */}
                 <div className="game d-flex justify-content-between flex-column">
                   <Head />
                   <PlayGround />
                   <Players />
                   {!menu ? <SmallDeviceMenu /> : null}
-                  {/* {endGame ? <MatchEnd /> : null} */}
-                  <MatchEnd />
+                  {endGame ? <MatchEnd /> : null}
                 </div>
-                {/* Components Border */}
+                {/*             Components Border             */}
               </ChangeEndGame.Provider>
             </EndGame.Provider>
           </ChangeOrder.Provider>
