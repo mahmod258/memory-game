@@ -9,8 +9,8 @@ export default function Players() {
         return (
           <div className={i === order ? "playing" : ""} key={i}>
             <div>
-              <p className="small-text">P{i}</p>
-              <p className="big-text">Player {i}</p>
+              <p className="small-text">P{i + 1}</p>
+              <p className="big-text">Player {i + 1}</p>
               <h1>{el}</h1>
             </div>
             <div>

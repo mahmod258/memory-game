@@ -135,6 +135,10 @@
       display: flex;
       flex-direction: column;
       gap: 1em;
+      .top {
+        background-color: var(--color3);
+        color: var(--white-color);
+      }
       > div {
         display: flex;
         justify-content: space-between;

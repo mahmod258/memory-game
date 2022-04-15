@@ -23,15 +23,14 @@ export default function Game() {
     let arr = playersSuccess;
     console.log(arr);
     arr[order] = arr[order] + 1;
-    console.log("-");
     setPlayerssuccess(arr);
   };
   const changeEndGame = () => setEndGame(true);
   const changeOrder = () => {
-    if (order === data.playersNumber - 1) {
+    if (order == data.playersNumber - 1) {
       setOrder(0);
     } else {
-      setOrder(order + 1);
+      setOrder(+order + 1);
     }
   };
   let navigate = useNavigate();
@@ -71,6 +70,7 @@ export default function Game() {
                   <Players />
                   {!menu ? <SmallDeviceMenu /> : null}
                   {endGame ? <MatchEnd /> : null}
+                  {/* <MatchEnd /> */}
                 </div>
                 {/*             Components Border             */}
               </ChangeEndGame.Provider>

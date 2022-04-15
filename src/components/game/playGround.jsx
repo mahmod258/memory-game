@@ -65,43 +65,48 @@ export default function PlayGround() {
   const [match, setMatch] = useState([]);
   const [first, setFirst] = useState({});
   const [countToEnd, setCountToEnd] = useState(0);
+  const [waiting, setWaiting] = useState(true);
   const handleGame = (el, e) => {
     let arr = match;
-    if (typeof arr[0] === "object") {
-      if (arr[0].unique_id !== el.unique_id) {
-        arr.push(el);
-        e.target.className = "played";
-      }
-    } else {
-      arr.push(el);
-      if (e.target.className !== "match") {
-        e.target.className = "played";
-      }
-    }
-    if (arr.length === 2) {
-      if (arr[0].odd_id === arr[1].odd_id) {
-        setTimeout(() => {
-          first.target.className = "match";
-          e.target.className = "match";
-        }, 500);
-        changePlayersSuccess();
-
-        setCountToEnd(countToEnd + 1);
-        if (countToEnd === data.gridSize / 2 - 1) {
-          changeEndGame();
+    if (waiting) {
+      if (typeof arr[0] === "object") {
+        if (arr[0].unique_id !== el.unique_id) {
+          arr.push(el);
+          e.target.className = "played";
         }
       } else {
-        setTimeout(() => {
-          first.target.className = "";
-          e.target.className = "";
-        }, 1000);
-        changePlayersSuccess();
+        arr.push(el);
+        if (e.target.className !== "match") {
+          e.target.className = "played";
+        }
       }
-      changeOrder();
+      if (arr.length === 2) {
+        if (arr[0].odd_id === arr[1].odd_id) {
+          setTimeout(() => {
+            first.target.className = "match";
+            e.target.className = "match";
+          }, 200);
+          changePlayersSuccess();
 
-      arr = [];
-    } else {
-      setFirst(e);
+          setCountToEnd(countToEnd + 1);
+          if (countToEnd === data.gridSize / 2 - 1) {
+            changeEndGame();
+          }
+        } else {
+          setTimeout(() => {
+            first.target.className = "";
+            e.target.className = "";
+          }, 1000);
+        }
+        changeOrder();
+        setWaiting(false);
+        setTimeout(() => {
+          setWaiting(true);
+        }, 1000);
+        arr = [];
+      } else {
+        setFirst(e);
+      }
     }
     setMatch(arr);
   };
