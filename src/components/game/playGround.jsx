@@ -35,7 +35,6 @@ export default function PlayGround() {
     <i className="fa-solid fa-lemon"></i>,
     <i className="fa-solid fa-apple-whole"></i>,
     <i className="fa-solid fa-award"></i>,
-    <i className="fa-solid fa-axe-battle"></i>,
     <i class="fa-solid fa-bowling-ball"></i>,
   ];
   let divsDetails = icons.map((el, i) => {
