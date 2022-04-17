@@ -138,6 +138,9 @@
       .top {
         background-color: var(--color3);
         color: var(--white-color);
+        span {
+          display: inline;
+        }
       }
       > div {
         display: flex;
@@ -146,6 +149,7 @@
         background-color: var(--non-clicked2);
         padding: 1em 2em;
         border-radius: 0.5em;
+
         p,
         h1 {
           margin: 0;
@@ -155,6 +159,9 @@
         }
         p {
           font-size: 1.2em;
+          span {
+            display: none;
+          }
         }
       }
     }

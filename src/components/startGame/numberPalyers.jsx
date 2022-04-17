@@ -1,6 +1,6 @@
 import { useState } from "react";
 export default function NumberPlayers({ func }) {
-  const [chose, setChose] = useState(["chose", "", "", ""]);
+  const [chose, setChose] = useState(["chose", "", ""]);
   function choosing(i) {
     let first = ["", "", "", ""];
     first[i] = "chose";
@@ -13,7 +13,7 @@ export default function NumberPlayers({ func }) {
         {chose.map((x, i) => {
           return (
             <button
-              value={i + 1}
+              value={i + 2}
               className={x}
               key={i}
               onClick={(e) => {
@@ -21,7 +21,7 @@ export default function NumberPlayers({ func }) {
                 func(+e.target.value);
               }}
             >
-              {i + 1}
+              {i + 2}
             </button>
           );
         })}

@@ -8,14 +8,14 @@ export const ChangeData = React.createContext({});
 function App() {
   const [data, setData] = useState({
     theme: "numbers",
-    playersNumber: 1,
+    playersNumber: 2,
     gridSize: 16,
   });
 
   useEffect(() => {
     setData({
       theme: "numbers",
-      playersNumber: 1,
+      playersNumber: 2,
       gridSize: 16,
     });
   }, []);
@@ -25,7 +25,7 @@ function App() {
   const replaceData = () => {
     setData({
       theme: "numbers",
-      playersNumber: 1,
+      playersNumber: 2,
       gridSize: 16,
     });
   };

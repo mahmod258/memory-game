@@ -4,8 +4,7 @@ import { PlayersSuccess } from "./game";
 
 export default function MatchEnd() {
   const playersScore = useContext(PlayersSuccess);
-  const [scores, setScores] = useState([]);
-  const [winner, setWinner] = useState([]);
+  const [scores, setScores] = useState({ top: [], details: [] });
   useEffect(() => {
     document.documentElement.style.setProperty("--filter", "block");
   });
@@ -22,35 +21,36 @@ export default function MatchEnd() {
           toPutOnScores[i].level = "bottom";
         }
       });
-      setScores(toPutOnScores);
+      setScores({ ...scores, details: toPutOnScores });
     });
-    scores.forEach((el, i, arrr) => {
+    scores.details.forEach((el, i) => {
+      let arr = [];
       if (el.level === "top") {
-        let arr = winner;
-        arr.push(i + 1);
-        setWinner(arr);
+        arr.push(i);
       }
+      setScores({ ...scores, top: arr });
     });
-  }, [playersScore]);
+    console.log(scores.top.length);
+  });
   return (
     <>
       <div className="match-end">
         <div>
-          <h1>Player {winner} Wins! </h1>
-          <p>Game over! Here are the results…</p>
+          <h1>Game over! Here are the results…</h1>
         </div>
         <div>
-          {scores.map((el, i) => {
+          {scores.details.map((el, i) => {
             return (
               <div className={el.level} key={i}>
-                <p>Player {i + 1}</p>
+                <p>
+                  Player {i + 1} <span>(winner)</span>
+                </p>
                 <h1>{el.score} Pairs</h1>
               </div>
             );
           })}
         </div>
         <div>
-          <button>Restart</button>
           <Link to="/memory-game">
             <button>Setup New Game</button>
           </Link>
