@@ -2,7 +2,7 @@ import { useState } from "react";
 export default function NumberPlayers({ func }) {
   const [chose, setChose] = useState(["chose", "", ""]);
   function choosing(i) {
-    let first = ["", "", "", ""];
+    let first = ["", "", ""];
     first[i] = "chose";
     setChose(first);
   }
